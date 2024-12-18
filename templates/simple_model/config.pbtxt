@@ -1,0 +1,31 @@
+name: "simple_model"
+backend: "python"
+max_batch_size: 0
+
+instance_group [
+  {
+    count: 1
+    kind: KIND_GPU
+  }
+]
+
+input [
+  {
+    name: "A",
+    data_type: TYPE_INT64,
+    dims: [ 1 ]
+  },
+  {
+    name: "B",
+    data_type: TYPE_INT64,
+    dims: [ 1 ]
+  }
+]
+
+output [
+  {
+    name: "RESULT",
+    data_type: TYPE_FP32,
+    dims: [ -1, -1 ]
+  }
+]
